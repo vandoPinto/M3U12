@@ -22,14 +22,14 @@
             <div class="animate__animated animate__backInRight"
                 style="margin-top: 39px;margin-left: 63px;width: 393px;">
                 <img id="janela_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 393px;">
-                <img id="janela_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 393px;">
-                <img id="janela_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 393px;">
-                <img id="janela_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 393px;">
-                <img id="janela_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 393px;">
-                <img id="janela_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 393px;">
-                <img id="janela_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 393px;">
+                <img id="janela_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 393px; ">
+                <img id="janela_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 393px; ">
+                <img id="janela_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 393px; ">
+                <img id="janela_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 393px; ">
+                <img id="janela_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 393px; ">
+                <img id="janela_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 393px; ">
             </div>
-            <div>
+            <div style="margin-top: 10px;margin-left: 63px;display: flex;justify-content: space-between;">
                 <img id="botao_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 44px;">
                 <img id="botao_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 44px;">
                 <img id="botao_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 44px;">
@@ -51,3 +51,29 @@
         </p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]');
+        apagarJanelas();
+        $(document).find('[id=janela_1]').show();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
