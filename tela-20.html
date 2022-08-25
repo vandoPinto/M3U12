@@ -1,0 +1,90 @@
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">UM
+        POUCO DE HISTÓRIA</p>
+</div>
+<div>
+    <div style="display: flex;">
+        <div style="width: 368px;margin-left: 40px;margin-top: 36px;">
+            <p>É importante considerar que, nesse período, intensificou-se a distinção institucional na área da
+                saúde entre as
+                atividades de educação e aquelas de comunicação, que passaram a ter perfis profissionais e áreas de
+                atuação
+                diferenciados. Enquanto a comunicação foi especificada e localizada nas Coordenadorias de
+                Comunicação Social (e em suas
+                assessorias de imprensa), ligadas diretamente ao ministro e ao seu gabinete, a educação em saúde foi
+                vinculada às áreas
+                técnicas (ARAÚJO; CARDOSO, 2007; CARDOSO, 2001). </p>
+            <p>Há que se considerar também uma área “parente” dos campos da educação e
+                comunicação em saúde: a informação em saúde. </p>
+            <p>Clique no destaque para saber mais.</p>
+        </div>
+        <div id="botao_1" class="animate__animated animate__backInRight">
+            <p style="font: normal normal bold 48px/62px Poppins;margin-top: 121px;color: #2F5579;margin-left: 61px;">
+                INFORMAÇÃO</p>
+            <p style="font: normal normal 800 72px/64px Poppins;color: #2F5579;margin-top: -58px;margin-left: 48px;">EM
+                SAÚDE</p>
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #2F5579 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">Como
+                        o
+                        usuário é ouvido pelos profissionais no processo assistencial?<br>
+                        Como as tecnologias (e quais) são
+                        acionadas para
+                        atender às necessidades dos usuários em cada ponto de atenção?<br>
+                        Como os usuários e os
+                        profissionais são ouvidos no
+                        processo de gestão da saúde?<br>
+                        Quais valores são produzidos nas práticas em saúde (gestão ou
+                        assistenciais)?</p>
+                </div>
+                <p
+                    style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;position: absolute;top: -9px;left: 730px;">
+                    x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #1F6D4C;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: white;font-size: 12px;">MÓDULO 3</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">EDUCAÇÃO, INTERSETORIALIDADE E
+            TRABALHO EM REDE NA ESF</p>
+        <p style="margin-left: 130px;color: white;font-size: 12px;">UNIDADE 12</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">EDUCAÇÃO E COMUNICAÇÃO EM SAÚDE
+        </p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
