@@ -3,11 +3,11 @@
     <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
             3</strong></p>
     <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
-        PRÁTICAS E DESAFIOS</p>
+        POSSIBILIDADES E APRIMORAMENTOS</p>
 </div>
 <div>
-    <div style="display: flex;margin-top: 72px;margin-left: 50px;">
-        <div style="width: 360px;">
+    <div style="display: flex;margin-top: 72px;margin-left: 40px;">
+        <div style="width: 369px;">
             <p style="width: 394px;font: normal normal 800 20px/30px Poppins;color: #FFA800;">O que se espera do
                 GSAP em
                 relação à educação e comunicação em saúde?</p>
@@ -16,27 +16,39 @@
                 O que você diz, muitas vezes, pode ser interpretado pelo outro de forma equivocada, causando
                 prejuízos e danos que podem
                 ser irreversíveis.</p>
-            <p>A história a seguir apresenta um exemplo de falha na comunicação. Clique na imagem para ampliar.</p>
+            <p>A história a seguir apresenta um exemplo de falha na comunicação. Clique nas setas para conhecê-la.
+            </p>
+        </div>
+        <div class="animate__animated animate__backInRight"
+            style=" z-index: 100;display: inline-flex;margin-top: 130px;margin-left: 428px;width: 400px;justify-content: space-between;position: absolute;">
+            <div style="cursor: pointer; width: 40px; height: 40px; border-radius: 50%;">
+                <img id="volta" src="recursos/imgs/ceta.svg"
+                    style="margin-top: 8px; width: 20px;  margin-left: 6px; opacity: 1; transform: scaleX(-1);">
+            </div>
+            <div style="cursor: pointer; width: 40px; height: 40px; border-radius: 50%;">
+                <img id="avanca" src="recursos/imgs/ceta.svg"
+                    style="margin-top: 8px; width: 20px;  margin-left: 14px; opacity: 1;">
+            </div>
         </div>
         <div>
             <div class="animate__animated animate__backInRight"
                 style="margin-top: 39px;margin-left: 63px;width: 393px;">
-                <img id="janela_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 393px;">
-                <img id="janela_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 393px; ">
-                <img id="janela_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 393px; ">
-                <img id="janela_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 393px; ">
-                <img id="janela_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 393px; ">
-                <img id="janela_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 393px; ">
-                <img id="janela_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 393px; ">
+                <img id="janela_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 393px; display: none;">
+                <img id="janela_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 393px; display: none;">
+                <img id="janela_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 393px; display: none;">
+                <img id="janela_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 393px; display: none;">
+                <img id="janela_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 393px; display: none;">
+                <img id="janela_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 393px;">
+                <img id="janela_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 393px; display: none;">
             </div>
             <div style="margin-top: 10px;margin-left: 63px;display: flex;justify-content: space-between;">
-                <img id="botao_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 44px;">
-                <img id="botao_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 44px;">
-                <img id="botao_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 44px;">
-                <img id="botao_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 44px;">
-                <img id="botao_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 44px;">
-                <img id="botao_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 44px;">
-                <img id="botao_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 44px;">
+                <img src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 44px; ">
             </div>
         </div>
     </div>
@@ -54,22 +66,56 @@
 <script>
     $(() => {
         let janelas = $(document).find('[id^=janela]');
+        console.log(janelas);
+        let avanca = $(document).find('[id^=avanca]').on('click', avancar);
+        let volta = $(document).find('[id^=volta]').on('click', voltar);
+        let contador = 1;
+        $(volta).css('opacity', '0.6');
+
         apagarJanelas();
-        $(document).find('[id=janela_1]').show();
-        $(document).find('[id^=btn]').hide();
+        $(document).find('[id^=janela_1]').show();
+
+        function avancar() {
+            if (contador < janelas.length) {
+                apagarJanelas();
+                contador++;
+                $(document).find(`[id^=janela_${contador}]`).show();
+            }
+            mudarBotoes();
+        }
+
+        function voltar() {
+            if (contador > 1) {
+                apagarJanelas();
+                contador--;
+                $(document).find(`[id^=janela_${contador}]`).show();
+            }
+            mudarBotoes();
+        }
+
+        function mudarBotoes() {
+            if (contador == 1) {
+                $(volta).css('opacity', '0.6');
+                $(avanca).css('opacity', '1');
+            }
+            if (contador == janelas.length) {
+                $(volta).css('opacity', '1');
+                $(avanca).css('opacity', '0.6');
+            }
+            if (contador > 1 && contador < janelas.length) {
+                $(volta).css('opacity', '1');
+                $(avanca).css('opacity', '1');
+            }
+        }
+
         let botoes = $(document).find('[id^=botao]').map((index, botao) => {
-            $(botao).css('cursor', 'pointer');
-            $(botao).hover(() => {
-                $(document).find(`[id=btn_${index + 1}_2]`).show();
-            });
-            $(botao).mouseleave(() => {
-                $(document).find('[id^=btn]').hide();
-            });
             $(botao).click(() => {
                 apagarJanelas();
-                $(janelas[index]).fadeIn();
+                mudarBotao(index + 1)
+                $(janelas[index + 1]).show();
             })
         })
+
         function apagarJanelas() {
             janelas.map((index, janela) => {
                 $(janela).hide();
