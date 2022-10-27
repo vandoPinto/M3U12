@@ -1,66 +1,35 @@
-<style>
-    .parent {
-        width: 898px;
-        overflow-x: hidden;
-        float: left;
-    }
-
-    .child {
-        width: 1000px;
-        height: 492px;
-        float: left;
-        cursor: pointer;
-    }
-</style>
-<div style="display: flex;">
-    <div style="width: 792px;height: 490px;right: 1px;background-color: #FFB300; padding-top: 10px;">
-        <div style="margin-left: 11px;">
-            <p style="color: white;margin-left: 43px;/* margin-top: 26px; */font-size: 12px;">
-                TÓPICO<strong>
-                    1</strong></p>
-            <p
-                style="color: white;margin-left: 125px;margin-top: -28px;width: 280px;font: normal normal normal 11px/17px Poppins;font-size: 10px;">
-                UM POUCO DE HISTÓRIA</p>
-            <div style="width: 206px;height: 2px;background: #FFFFFF 0% 0% no-repeat padding-box;margin-left: 43px;">
-            </div>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        PRÁTICAS E DESAFIOS</p>
+</div>
+<div>
+    <div style="display: flex;margin-top: 53px;margin-left: 40px;">
+        <div style="width: 324px;">
+            <p style="font: normal normal 800 16px/28px Poppins;color: #1F6D4C;">2. Apagar incêndios</p>
+            <p>Outro problema muito relatado foi a necessidade constante de “apagar incêndios”, em referência às
+                demandas emergenciais
+                recebidas cotidianamente, tanto dos serviços quanto das pautas colocadas pela gestão, o que
+                atrapalha a continuidade das
+                ações planejadas para a UBS. </p>
+            <p>Assim, uma incômoda sensação de estar “enxugando gelo” desanima a equipe, que se sente
+                pressionada a realizar ações não programadas, deixando em segundo plano as atividades e metas
+                pactuadas.</p>
         </div>
-        <p
-            style="margin-top: 171px;width: 255px;margin-left: 50px;font: normal normal bold 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">
-            A seguir, apresentamos uma síntese da evolução histórica da saúde em nosso país.</p>
-        <div style="position: absolute;height: 300px;width: 3px;background-color: #265D3B;top: 98px;left: 415px;">
-        </div>
-    </div>
-    <div class="parent">
-        <div class="child">
-            <img src="recursos/imgs/img-slide-28.svg" style="height: 460px;margin-top: 40px;">
+        <div class="animate__animated animate__backInRight">
+            <img src="recursos/imgs/img-slide-46.svg" style="width: 414px;margin-left: 70px;margin-top: -10px;">
         </div>
     </div>
 </div>
-<script>
-    $(() => {
-        const slider = document.querySelector('.parent');
-        let mouseDown = false;
-        let startX, scrollLeft;
-
-        let startDragging = function (e) {
-            mouseDown = true;
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        };
-        let stopDragging = function (event) {
-            mouseDown = false;
-        };
-
-        slider.addEventListener('mousemove', (e) => {
-            e.preventDefault();
-            if (!mouseDown) { return; }
-            const x = e.pageX - slider.offsetLeft;
-            const scroll = x - startX;
-            slider.scrollLeft = scrollLeft - scroll;
-        });
-
-        slider.addEventListener('mousedown', startDragging, false);
-        slider.addEventListener('mouseup', stopDragging, false);
-        slider.addEventListener('mouseleave', stopDragging, false);
-    })
-</script>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #1F6D4C;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: white;font-size: 12px;">MÓDULO 3</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">EDUCAÇÃO, INTERSETORIALIDADE E
+            TRABALHO EM REDE NA ESF</p>
+        <p style="margin-left: 130px;color: white;font-size: 12px;">UNIDADE 12</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">EDUCAÇÃO E COMUNICAÇÃO EM SAÚDE
+        </p>
+    </div>
+</footer>

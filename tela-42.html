@@ -1,27 +1,57 @@
 <div style="height: 60px;width: 100%;">
     <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
-            2</strong></p>
+            3</strong></p>
     <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
-        PRÁTICAS E DESAFIOS</p>
+        POSSIBILIDADES E APRIMORAMENTOS</p>
 </div>
-<div style="margin-top: 68px;margin-left: 40px;width: 808px;">
-    <p style="color: #FFA800;font-size: 20px;font-weight: bolder;">No Planalto Central: alguns perrengues candangos
-    </p>
-    <p>Durante a elaboração deste curso, a coordenação do Programa de Qualificação da Atenção Primária à Saúde
-        (Qualis APS)
-        elaborou um diagnóstico das necessidades e demandas de formação dos trabalhadores da APS do DF que eram
-        potenciais
-        cursistas (DISTRITO FEDERAL; FUNDAÇÃO OSWALDO CRUZ, 2020).</p>
-    <p>Dessa maneira, foi possível não só conhecer um pouco do
-        perfil e das necessidades de formação dos trabalhadores, como também identificar os principais problemas e
-        nós críticos
-        do trabalho e do território de atuação desses profissionais, por meio de uma escuta qualificada. </p>
-    <p>Neste momento, vamos
-        discutir algumas das questões aventadas nesse processo, no que diz respeito ao campo da E&amp;C em saúde,
-        certos de que o
-        processo será complementado e enriquecido com os debates e as atividades coletivas a serem realizadas em
-        sala de aula.</p>
+<div>
+    <div style="display: flex;margin-top: 72px;margin-left: 40px;">
+        <div style="width: 369px;">
+            <p style="width: 394px;font: normal normal 800 20px/30px Poppins;color: #FFA800;">O que se espera do
+                GSAP em
+                relação à educação e comunicação em saúde?</p>
+            <p>Quando o assunto é saúde, uma comunicação feita de forma incorreta pode significar a morte. Mas do
+                que estamos falando?
+                O que você diz, muitas vezes, pode ser interpretado pelo outro de forma equivocada, causando
+                prejuízos e danos que podem
+                ser irreversíveis.</p>
+            <p>A história a seguir apresenta um exemplo de falha na comunicação. Clique nas setas para conhecê-la.
+            </p>
+        </div>
+        <div class="animate__animated animate__backInRight"
+            style=" z-index: 100;display: inline-flex;margin-top: 130px;margin-left: 428px;width: 400px;justify-content: space-between;position: absolute;">
+            <div style="cursor: pointer; width: 40px; height: 40px; border-radius: 50%;">
+                <img id="volta" src="recursos/imgs/ceta.svg"
+                    style="margin-top: 8px; width: 20px;  margin-left: 6px; opacity: 1; transform: scaleX(-1);">
+            </div>
+            <div style="cursor: pointer; width: 40px; height: 40px; border-radius: 50%;">
+                <img id="avanca" src="recursos/imgs/ceta.svg"
+                    style="margin-top: 8px; width: 20px;  margin-left: 14px; opacity: 1;">
+            </div>
+        </div>
+        <div>
+            <div class="animate__animated animate__backInRight"
+                style="margin-top: 39px;margin-left: 63px;width: 393px;">
+                <img id="janela_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 393px; display: none;">
+                <img id="janela_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 393px; display: none;">
+                <img id="janela_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 393px; display: none;">
+                <img id="janela_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 393px; display: none;">
+                <img id="janela_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 393px; display: none;">
+                <img id="janela_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 393px;">
+                <img id="janela_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 393px; display: none;">
+            </div>
+            <div style="margin-top: 10px;margin-left: 63px;display: flex;justify-content: space-between;">
+                <img src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 44px; ">
+                <img src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 44px; ">
+            </div>
+        </div>
+    </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #1F6D4C;">
     <div style="margin-top: -8px;display: flex;margin-left: 42px;">
@@ -33,3 +63,63 @@
         </p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]');
+        console.log(janelas);
+        let avanca = $(document).find('[id^=avanca]').on('click', avancar);
+        let volta = $(document).find('[id^=volta]').on('click', voltar);
+        let contador = 1;
+        $(volta).css('opacity', '0.6');
+
+        apagarJanelas();
+        $(document).find('[id^=janela_1]').show();
+
+        function avancar() {
+            if (contador < janelas.length) {
+                apagarJanelas();
+                contador++;
+                $(document).find(`[id^=janela_${contador}]`).show();
+            }
+            mudarBotoes();
+        }
+
+        function voltar() {
+            if (contador > 1) {
+                apagarJanelas();
+                contador--;
+                $(document).find(`[id^=janela_${contador}]`).show();
+            }
+            mudarBotoes();
+        }
+
+        function mudarBotoes() {
+            if (contador == 1) {
+                $(volta).css('opacity', '0.6');
+                $(avanca).css('opacity', '1');
+            }
+            if (contador == janelas.length) {
+                $(volta).css('opacity', '1');
+                $(avanca).css('opacity', '0.6');
+            }
+            if (contador > 1 && contador < janelas.length) {
+                $(volta).css('opacity', '1');
+                $(avanca).css('opacity', '1');
+            }
+        }
+
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).click(() => {
+                apagarJanelas();
+                mudarBotao(index + 1)
+                $(janelas[index + 1]).show();
+            })
+        })
+
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

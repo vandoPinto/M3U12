@@ -5,52 +5,30 @@
     <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
         POSSIBILIDADES E APRIMORAMENTOS</p>
 </div>
-<div>
-    <div style="display: flex;margin-top: 72px;margin-left: 40px;">
-        <div style="width: 369px;">
-            <p style="width: 394px;font: normal normal 800 20px/30px Poppins;color: #FFA800;">O que se espera do
-                GSAP em
-                relação à educação e comunicação em saúde?</p>
-            <p>Quando o assunto é saúde, uma comunicação feita de forma incorreta pode significar a morte. Mas do
-                que estamos falando?
-                O que você diz, muitas vezes, pode ser interpretado pelo outro de forma equivocada, causando
-                prejuízos e danos que podem
-                ser irreversíveis.</p>
-            <p>A história a seguir apresenta um exemplo de falha na comunicação. Clique nas setas para conhecê-la.
-            </p>
-        </div>
-        <div class="animate__animated animate__backInRight"
-            style=" z-index: 100;display: inline-flex;margin-top: 130px;margin-left: 428px;width: 400px;justify-content: space-between;position: absolute;">
-            <div style="cursor: pointer; width: 40px; height: 40px; border-radius: 50%;">
-                <img id="volta" src="recursos/imgs/ceta.svg"
-                    style="margin-top: 8px; width: 20px;  margin-left: 6px; opacity: 1; transform: scaleX(-1);">
-            </div>
-            <div style="cursor: pointer; width: 40px; height: 40px; border-radius: 50%;">
-                <img id="avanca" src="recursos/imgs/ceta.svg"
-                    style="margin-top: 8px; width: 20px;  margin-left: 14px; opacity: 1;">
-            </div>
-        </div>
-        <div>
-            <div class="animate__animated animate__backInRight"
-                style="margin-top: 39px;margin-left: 63px;width: 393px;">
-                <img id="janela_1" src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 393px; display: none;">
-                <img id="janela_2" src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 393px; display: none;">
-                <img id="janela_3" src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 393px; display: none;">
-                <img id="janela_4" src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 393px; display: none;">
-                <img id="janela_5" src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 393px; display: none;">
-                <img id="janela_6" src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 393px;">
-                <img id="janela_7" src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 393px; display: none;">
-            </div>
-            <div style="margin-top: 10px;margin-left: 63px;display: flex;justify-content: space-between;">
-                <img src="recursos/imgs/Slide-60/Quadro-1.png" style="width: 44px; ">
-                <img src="recursos/imgs/Slide-60/Quadro-2.png" style="width: 44px; ">
-                <img src="recursos/imgs/Slide-60/Quadro-3.png" style="width: 44px; ">
-                <img src="recursos/imgs/Slide-60/Quadro-4.png" style="width: 44px; ">
-                <img src="recursos/imgs/Slide-60/Quadro-5.png" style="width: 44px; ">
-                <img src="recursos/imgs/Slide-60/Quadro-6.png" style="width: 44px; ">
-                <img src="recursos/imgs/Slide-60/Quadro-7.png" style="width: 44px; ">
-            </div>
-        </div>
+<div style="margin-top: 40px;margin-left: 50px;width: 785px;">
+    <p>Quando um gestor público decide pegar para si a responsabilidade de divulgação de informações, em que o fluxo
+        são os
+        meios oficiais, ele precisa estar ciente de que pode vir a ser responsabilizado por essa ação caso existam
+        ruídos de
+        comunicação na divulgação desse conteúdo. Assim, o melhor caminho sempre é seguir os fluxos institucionais.
+    </p>
+    <p>Que tal
+        propor, juntamente à coordenação de comunicação oficial do GDF, a divulgação de pautas positivas sobre seu
+        território?</p>
+    <p>Clique nos ícones e acesse os principais veículos de comunicação locais para você se inspirar a divulgar suas
+        experiências exitosas para toda a população do Distrito Federal!</p>
+    <div
+        style="display: flex;margin-left: 201px;margin-top: 41px;width: 400px;align-items: flex-end;justify-content: space-between;">
+        <a href="recursos/pdf/Lista_TV_Tela78.pdf" target="_blank" style="text-decoration: none;">
+            <img src="recursos/imgs/icon-tv.svg" style="width: 61px;margin-left: 50px;">
+            <p style="font: normal normal bold 12px/15px Poppins;color: #2F5579;text-align: center;">Lista das
+                televisões abertas</p>
+        </a>
+        <a href="recursos/pdf/Lista_Jornal_Tela78.pdf" target="_blank" style="text-decoration: none;">
+            <img src="recursos/imgs/icon-news.svg" style="width: 65px;margin-left: 50px;">
+            <p style="font: normal normal bold 12px/15px Poppins;color: #2F5579;text-align: center;">Lista dos
+                principais jornais</p>
+        </a>
     </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #1F6D4C;">
@@ -65,57 +43,23 @@
 </footer>
 <script>
     $(() => {
-        let janelas = $(document).find('[id^=janela]');
-        console.log(janelas);
-        let avanca = $(document).find('[id^=avanca]').on('click', avancar);
-        let volta = $(document).find('[id^=volta]').on('click', voltar);
-        let contador = 1;
-        $(volta).css('opacity', '0.6');
-
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
         apagarJanelas();
-        $(document).find('[id^=janela_1]').show();
-
-        function avancar() {
-            if (contador < janelas.length) {
-                apagarJanelas();
-                contador++;
-                $(document).find(`[id^=janela_${contador}]`).show();
-            }
-            mudarBotoes();
-        }
-
-        function voltar() {
-            if (contador > 1) {
-                apagarJanelas();
-                contador--;
-                $(document).find(`[id^=janela_${contador}]`).show();
-            }
-            mudarBotoes();
-        }
-
-        function mudarBotoes() {
-            if (contador == 1) {
-                $(volta).css('opacity', '0.6');
-                $(avanca).css('opacity', '1');
-            }
-            if (contador == janelas.length) {
-                $(volta).css('opacity', '1');
-                $(avanca).css('opacity', '0.6');
-            }
-            if (contador > 1 && contador < janelas.length) {
-                $(volta).css('opacity', '1');
-                $(avanca).css('opacity', '1');
-            }
-        }
-
-        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').addClass('zoom').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=text_${index + 1}]`).css('color', '#FFA800');
+            });
+            $(botao).mouseleave(() => {
+                $(document).find(`[id=text_1]`).css('color', '#006FFF');
+                $(document).find(`[id=text_2]`).css('color', '#CE00FF');
+            });
             $(botao).click(() => {
                 apagarJanelas();
-                mudarBotao(index + 1)
-                $(janelas[index + 1]).show();
+                $(janelas[index]).fadeIn();
             })
         })
-
         function apagarJanelas() {
             janelas.map((index, janela) => {
                 $(janela).hide();

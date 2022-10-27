@@ -6,40 +6,16 @@
         PRÁTICAS E DESAFIOS</p>
 </div>
 <div>
-    <div style="display: flex;">
-        <div style="width: 324px;margin-left: 40px;margin-top: 78px;">
-            <p>Em relação à comunicação em saúde, entendemos que se trata de um campo do conhecimento conformado na
-                interface entre a
-                comunicação e a saúde, significando, no entanto, muito mais que a mera sinergia entre duas áreas
-                isoladas ou a
-                apropriação de uma (comunicação) como um instrumento a serviço de outra (saúde) (ARAÚJO; CARDOSO,
-                2007). </p>
-            <p>Clique no ícone
-                e veja o que diz a OMS sobre comunicação em saúde.</p>
-        </div>
-        <div class="animate__animated animate__backInRight">
-            <img id="botao_1" src="recursos/imgs/img-slide-38.svg"
-                style="width: 305px;margin-left: 93px;margin-top: 94px;cursor: pointer;">
-        </div>
-    </div>
-    <div>
-        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
-            <div
-                style="width: 743px;height: 173px;background: #1B8992 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 170px;left: 80px;align-items: center;justify-content: space-evenly;">
-                <div
-                    style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
-                    <p style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">
-                        A comunicação em saúde compreende atividades de comunicação interpessoal e de massa
-                        direcionadas para a melhoria do
-                        estado de saúde de indivíduos e populações. Pode envolver a integração de comunicação de
-                        massa e multimídia com formas
-                        locais e tradicionais de comunicação (NUTBEAM, 1998).</p>
-                </div>
-                <p
-                    style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;position: absolute;top: -9px;left: 730px;">
-                    x</p>
-            </div>
-        </div>
+    <div style="margin-left: 50px;margin-top: 130px;width: 785px;">
+        <p>É certo que, nesse desafio comunicacional, um componente essencial a ser desenvolvido é a empatia. Os
+            próprios GSAPs
+            destacam que é fundamental o trabalhador se colocar no lugar do outro, a fim de compreender as angústias
+            e necessidades
+            de seus colegas e dos usuários, desconstruindo os abismos e criando pontes de aproximação. </p>
+        <p>Para que isso aconteça,
+            precisamos respeitar, ouvir e conhecer a realidade do outro, identificando as potencialidades e os
+            limites de cada
+            integrante da equipe (DISTRITO FEDERAL; FUNDAÇÃO OSWALDO CRUZ, 2020).</p>
     </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #1F6D4C;">
@@ -52,28 +28,3 @@
         </p>
     </div>
 </footer>
-<script>
-    $(() => {
-        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
-        apagarJanelas();
-        $(document).find('[id^=btn]').hide();
-        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
-            $(botao).css('cursor', 'pointer');
-            $(botao).hover(() => {
-                $(document).find(`[id=btn_${index + 1}_2]`).show();
-            });
-            $(botao).mouseleave(() => {
-                $(document).find('[id^=btn]').hide();
-            });
-            $(botao).click(() => {
-                apagarJanelas();
-                $(janelas[index]).fadeIn();
-            })
-        })
-        function apagarJanelas() {
-            janelas.map((index, janela) => {
-                $(janela).hide();
-            })
-        }
-    })
-</script>
