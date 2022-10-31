@@ -56,7 +56,8 @@
                             profissionais de
                             saúde, inspirados pelas discussões sobre medicina comunitária e Atenção Primária à
                             Saúde, já
-                            difundidas em alguns lugares do mundo (LOPES; PEREIRA; MOREL, 2020; SILVA et al., 2010).
+                            difundidas em alguns lugares do mundo (LOPES; PEREIRA; MOREL, 2020; SILVA <i>et al.</i>,
+                            2010).
                         </p>
                         <div>
                             <div
@@ -68,7 +69,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="janela_3" style="width: 750px; justify-content: space-between; align-items: center; display: flex;">
+                <div id="janela_3"
+                    style="width: 750px; justify-content: space-between; align-items: center; display: flex;">
                     <img src="recursos/imgs/img-slide-19.png" style="width: 310px;">
                     <div style="width: 400px;">
                         <p style="color: white;">Grande expansão dos meios de comunicação, dando origem a um
@@ -96,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="janela_4" style="width: 660px; justify-content: space-between; align-items: center; ">
+                <div id="janela_4" style="width: 660px; justify-content: space-between; align-items: center;">
                     <div style="width: 655px;">
                         <p style="color: white;">Intensificou-se a distinção institucional na área da saúde entre as
                             atividades de educação e aquelas de comunicação, que passaram a ter perfis profissionais
@@ -122,6 +124,54 @@
                             <div
                                 style="width: 4px;height: 4px;background: #FFFFFF 0% 0% no-repeat padding-box;border-radius: 50%;position: relative;top: -49px;left: -10px;">
                             </div>
+                        </div>
+                    </div>
+                    <div id="botao_1" style="margin-left: 76px;">
+                        <p
+                            style="font: normal normal bold 48px/62px Poppins;margin-top: -12px;color: #2F5579;margin-left: 61px;">
+                            INFORMAÇÃO</p>
+                        <p
+                            style="font: normal normal 800 72px/64px Poppins;color: #2F5579;margin: 0px;margin-top: -58px;margin-left: 48px;">
+                            EM
+                            SAÚDE</p>
+                    </div>
+                    <div class="jan" id="jaBot" style="cursor: pointer; display: none;">
+                        <div
+                            style="width: 743px;height: 249px;background: #2F5579 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 130px;left: 80px;align-items: center;justify-content: space-evenly;">
+                            <div
+                                style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                                <p
+                                    style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">
+                                    “Embora
+                                    a Inspetoria de Estatística, Demografia Sanitária, Educação e Propaganda, criada em
+                                    1920,
+                                    possa
+                                    ser considerada
+                                    um ‘ancestral’ comum dessas três áreas, já em 1923, o regulamento do DNSP foi
+                                    alterado para
+                                    a
+                                    criação do Serviço de
+                                    Propaganda Sanitária. Nas primeiras décadas do século XX, a informação estava
+                                    associada a
+                                    procedimentos estatísticos e
+                                    epidemiológicos e não sobressaía como área correlata à comunicação, embora essa
+                                    relação hoje
+                                    nos
+                                    pareça evidente.”
+                                    (ARAÚJO; CARDOSO, 2007, p. 30).</p>
+                                <p style="font: normal normal normal 14px/18px Poppins;color: #FFFFFF;">Atualmente, esse
+                                    distanciamento dos campos permanece, tendo a informação reforçado seu
+                                    vínculo com o planejamento e a avaliação das políticas públicas, mais autônoma em
+                                    relação à
+                                    comunicação, com destaque ao
+                                    investimento e ao desenvolvimento das áreas de informação científica e tecnológica e
+                                    de
+                                    informação em saúde. (ARAÚJO;
+                                    CARDOSO, 2007).</p>
+                            </div>
+                            <p
+                                style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;position: absolute;top: -9px;left: 730px;">
+                                x</p>
                         </div>
                     </div>
                 </div>
@@ -166,6 +216,21 @@
 </footer>
 <script>
     $(() => {
+
+        let janela = $('#jaBot').css('cursor', 'pointer').on("click", apagarJanela);
+        apagarJanela();
+        $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).click(() => {
+                apagarJanela();
+                $(janela[index]).fadeIn();
+            })
+        })
+        function apagarJanela() {
+            $(janela).hide();
+        }
+
+
         let janelas = $(document).find('[id^=janela]');
         console.log(janelas);
         let avanca = $(document).find('[id^=avanca]').on('click', avancar);
@@ -209,13 +274,13 @@
             }
         }
 
-        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
-            $(botao).click(() => {
-                apagarJanelas();
-                mudarBotao(index + 1)
-                $(janelas[index + 1]).show();
-            })
-        })
+        // let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+        //     $(botao).click(() => {
+        //         apagarJanelas();
+        //         mudarBotao(index + 1)
+        //         $(janelas[index + 1]).show();
+        //     })
+        // })
 
         function apagarJanelas() {
             janelas.map((index, janela) => {
@@ -223,4 +288,5 @@
             })
         }
     })
+
 </script>
